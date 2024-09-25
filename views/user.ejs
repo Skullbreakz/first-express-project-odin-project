@@ -1,0 +1,10 @@
+<li>
+    <div>
+    <h1> <%= user.user %> </h1>
+    <p><%= user.text %></p>
+    <p><%= user.added.toLocaleString() %></p>
+</div>
+<button type="button">
+    <a href="/message-detail/<%= user.id %>">Details</a>
+</button>
+</li>
