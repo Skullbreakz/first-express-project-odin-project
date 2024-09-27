@@ -1,24 +1,44 @@
 {
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "ejs": "^3.1.10",
-    "express": "^4.21.0",
-    "express-async-handler": "^1.2.0"
-  },
+
   "scripts": {
-    "start": "node dist/server.js",   
-    "dev": "nodemon src/server.js",   
-    "build": "babel src -d dist",     
-    "lint": "eslint .",               
-    "prettify": "prettier --write .", 
-    "prepare": "npm install"          
+
+    "start": "node dist/app.js",
+    "dev": "nodemon src/app.js",
+    "build": "babel src -d dist && npm run copy-views",
+    "copy-views": "cp -r src/views dist/",
+    "lint": "eslint .",
+    "prettify": "prettier --write .",
+    "prepare": "npm install"
+
   },
+
+  "dependencies": {
+
+    "dotenv": "^16.4.5",
+
+    "ejs": "^3.1.10",
+
+    "eslint": "^9.11.1",
+
+    "express": "^4.21.0",
+
+    "express-async-handler": "^1.2.0",
+
+    "nodemon": "^3.1.7"
+
+  },
+
   "devDependencies": {
-    "nodemon": "^2.0.22",
-    "eslint": "^8.51.0",
-    "prettier": "^3.0.3",
-    "@babel/core": "^7.22.9",
+
     "@babel/cli": "^7.22.10",
-    "@babel/preset-env": "^7.22.10"
+
+    "@babel/core": "^7.22.9",
+
+    "@babel/preset-env": "^7.22.10",
+
+    "prettier": "^3.3.3"
+
   }
+
 }
+
