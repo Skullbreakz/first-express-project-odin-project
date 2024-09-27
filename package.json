@@ -3,11 +3,17 @@
   "scripts": {
 
     "start": "node dist/app.js",
+
     "dev": "nodemon src/app.js",
+
     "build": "babel src -d dist && npm run copy-views",
+
     "copy-views": "cp -r src/views dist/",
+
     "lint": "eslint .",
+
     "prettify": "prettier --write .",
+
     "prepare": "npm install"
 
   },
@@ -23,6 +29,8 @@
     "express": "^4.21.0",
 
     "express-async-handler": "^1.2.0",
+
+    "express-validator": "^7.2.0",
 
     "nodemon": "^3.1.7"
 

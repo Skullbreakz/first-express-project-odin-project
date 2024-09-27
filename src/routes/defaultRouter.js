@@ -1,47 +1,21 @@
 const { Router } = require("express");
-const MessageNotFoundError = require("../custom errors/messageNotFoundError");
-
 const homeRouter = Router();
-
+const MessageNotFoundError = require("../custom errors/messageNotFoundError");
+const { body, validationResult } = require("express-validator");
+const {
+  newMessageController,
+  getHomePageController,
+  getMessageByIdController,
+  getCreateUserFormController,
+} = require("../controllers/defaultController");
 // better than random function to avoid collisions
-let idCount = 1;
 
-homeRouter.get("/", (req, res) => {
-  res.render("index", { messages });
-});
+homeRouter.get("/", getHomePageController);
 
-homeRouter.get("/message-detail/:id", (req, res) => {
-  const user = messages.find((m) => m.id === parseInt(req.params.id));
-  if (!user) {
-    throw new MessageNotFoundError("Message not found");
-  }
-  res.render("message-detail", { user });
-});
+homeRouter.get("/message-detail/:id", getMessageByIdController);
 
-homeRouter.get("/new", (req, res) => {
-  res.render("create-user");
-});
+homeRouter.get("/new", getCreateUserFormController);
 
-homeRouter.post("/new", (req, res) => {
-  const { user, text } = req.body;
-  id = ++idCount;
-  messages.push({
-    // id: Math.random().toFixed() * 100000,
-    id,
-    user,
-    text,
-    added: new Date(),
-  });
-  res.redirect("/");
-});
+homeRouter.post("/new", newMessageController);
 
 module.exports = homeRouter;
-
-const messages = [
-  {
-    id: idCount,
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-];
