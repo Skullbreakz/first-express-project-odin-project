@@ -1,4 +1,6 @@
-const { validationResult } = require("express-validator");
+const { body, validationResult } = require("express-validator");
+const MessageNotFoundError = require("../custom errors/messageNotFoundError");
+
 let idCount = 1;
 
 const getHomePageController = (req, res, next) => {
@@ -29,9 +31,9 @@ const newMessageController = (req, res, next) => {
     added: new Date(),
   });
   if (!errors.isEmpty()) {
-    res.redirect("/");
+    return res.render("create-user", { errors: errors.array() });
   }
-  return res.render("create-user", { errors: errors.array() });
+  res.redirect("/");
 };
 
 const messages = [
