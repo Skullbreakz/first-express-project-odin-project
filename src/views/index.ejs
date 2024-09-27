@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <% if (locals.title) { %>  
+        <title><%- title %></title>
+        <% } %>
 </head>
-<body>
-        <ul>
-            <% messages.forEach(user => { %>
-                <%- include('user', {user}) %>
-                <% }) %>
-            </ul>
 
-            <a href="/new">Create a new User</a>
+<body>
+    <% if (locals.messages) {%>
+    <ul>
+        <% messages.forEach(user=> { %>
+            <%- include('user', {user}) %>
+                <% }) %>
+    </ul>
+    <% } %>
+
+
+    <a href="/messages/create">Create a new Message</a>
+    <% if (locals.users) {%>
+        <h1>Users</h1>
+
+        <ul>
+            <% users.forEach(user=> { %>
+                <li>
+                    ID: <%= user.id %>, Name: <%= user.firstName %>
+                            <%= user.lastName %>
+                </li>
+                <% }); %>
+        </ul>
+        <% } %>
+<br>
+        <a href="/users/create">Create a new User</a>
 
 </body>
+
 </html>
