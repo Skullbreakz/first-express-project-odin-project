@@ -1,5 +1,6 @@
 const { body } = require("express-validator");
-
+const alphaErr = "must only contain letters.";
+const lengthErr = "must be between 1 and 10 characters.";
 exports.messageValidator = [
   body("user")
     .trim()

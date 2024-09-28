@@ -12,9 +12,8 @@
 
     "lint": "eslint .",
 
-    "prettify": "prettier --write .",
+    "prettify": "prettier --write ."
 
-    "prepare": "npm install"
 
   },
 
