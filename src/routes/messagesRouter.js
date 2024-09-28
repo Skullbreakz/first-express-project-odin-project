@@ -6,9 +6,9 @@ const { body } = require("express-validator");
 
 homeRouter.get("/", messagesController.getHomePage);
 
-homeRouter.get("/message/:id", messagesController.getMessageById);
+homeRouter.get("/msg/:id", messagesController.getMessageById);
 
-homeRouter.get("/create", messagesController.getUserForm);
+homeRouter.get("/create", messagesController.getMessagesForm);
 
 homeRouter.post(
   "/create",

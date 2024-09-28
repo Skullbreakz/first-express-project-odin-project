@@ -19,16 +19,18 @@
 <body>
     
     <div class="user-detail">
+        <% if (locals.message) {%>
         <h1>
-            <%= user.user %>
+            <%= message.user %>
         </h1>
         <p>
-            <%= user.text %>
+            <%= message.text %>
         </p>
 
         <p>            
-            Sent at: <%= user.added.toLocaleString() %>
+            Sent at: <%= message.date.toLocaleString() %>
         </p>
+        <% } %>
 
         <a href="/">Home</a>
     </div>

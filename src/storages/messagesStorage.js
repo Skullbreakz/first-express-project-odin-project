@@ -3,10 +3,10 @@ class MessagesStorage {
     this.storage = {};
     this.id = 0;
   }
-  addMessage({ user, text }) {
+  addMessage({ user, text, date }) {
     const id = this.id;
-    this.storage[id] = { id, user, text };
-    id++;
+    this.storage[id] = { id, user, text, date };
+    this.id++;
   }
 
   getMessages() {
@@ -28,3 +28,5 @@ class MessagesStorage {
     delete this.storage[id];
   }
 }
+
+module.exports = new MessagesStorage();

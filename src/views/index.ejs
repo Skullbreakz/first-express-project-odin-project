@@ -11,9 +11,10 @@
 
 <body>
     <% if (locals.messages) {%>
+        <h1>Messages</h1>
     <ul>
-        <% messages.forEach(user=> { %>
-            <%- include('user', {user}) %>
+        <% messages.forEach(message=> { %>
+            <%- include('message', {message}) %>
                 <% }) %>
     </ul>
     <% } %>
